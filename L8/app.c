@@ -182,11 +182,13 @@ void sl_bt_on_event(sl_bt_msg_t *evt)
               app_log("Notificare activata pentru caracteristica BUTTON\r\n");
               // Setare flag care va fi folosit in logica aplicatiei
               // pentru generarea de notificari
+              GPIO_PinOutSet(gpioPortA, 4);
               button_io_notification_enabled = true;
           }
           else {
               app_log("Notificare dezactivata pentru caracteristica BUTTON\r\n");
               // Resetare flag
+              GPIO_PinOutClear(gpioPortA, 4);
               button_io_notification_enabled = false;
           }
       }
